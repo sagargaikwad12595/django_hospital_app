@@ -35,11 +35,11 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender</label><br>
-            <input type="radio" id="gender" name="gender" value="male"> Male<br>
-            <input type="radio" id="gender" name="gender" value="female"> Female<br>
-            <input type="radio" id="gender" name="gender" value="other"> Other
+            <input type="radio" id="gender" name="gender" value="male" {% if is_male %}checked{% endif %} > Male<br>
+            <input type="radio" id="gender" name="gender" value="female" {% if is_female %}checked{% endif %} > Female<br>
+            <input type="radio" id="gender" name="gender" value="other" {% if is_other %}checked{% endif %}> Other
         </div>
-        <button type="button" class="btn btn btn-secondary">Cancel</button>
+        <a href="/"><button type="button" class="btn btn btn-secondary">Cancel</button></a>
         <button type="submit" class="btn btn-success">Save Changes</button>
     </form>
 

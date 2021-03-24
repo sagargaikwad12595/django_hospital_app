@@ -20,6 +20,7 @@ from patient.view import dashboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',dashboard.patient_data,name='Patients'),
     path('dashboard/view/',dashboard.patient_data,name='Patients'),
     path('dashboard/add/',dashboard.add_patient,name='Add New Patient'),
     path('submit/data/',dashboard.submit_data,name='Submit'),
