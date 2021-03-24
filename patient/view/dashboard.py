@@ -58,14 +58,20 @@ def delete_patient(request):
 
 def edit_info(request,id):
     patient = Patient.objects.get(pk=id)
-
     patient_dict = {
         'id': patient.id,
         'first_name': patient.first_name,
         'last_name': patient.last_name,
         'dob': patient.dob,
-        'gender': patient.gender
     }
+
+    if patient.gender == 'male':
+        patient_dict.update({'is_male':True ,'is_female':False,'is_other':False})
+    elif patient.gender == 'female':
+        patient_dict.update({'is_male':False ,'is_female':True,'is_other':False})
+    elif patient.gender == 'other':
+        patient_dict.update({'is_male': False, 'is_female': False, 'is_other': True})
+
     return render(request,'edit_info.html',patient_dict)
 
 def save_changes(request,id):
